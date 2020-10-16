@@ -1,3 +1,14 @@
+<div class="search-modal">
+  <form class="search-modal__form" action="<?php echo esc_url( home_url( '/' ) ) ?>">
+    <input type="text" placeholder="Szukaj..." class="search-modal__input" name="s">
+    <button type="submit" class="search-modal__button">
+      Szukaj
+    </button>
+    <a href="#" class="search-modal__close">
+      <i class="fas fa-times"></i>
+    </a>
+  </form>
+</div>
 <header class="header" header>
   <div class="container">
     <div class="header__wrapper">
@@ -21,14 +32,11 @@
               'menu_class' => 'header__menu',
             ]) !!}
         @endif
-        <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ) ?>">
-          <label>
-            <span class="screen-reader-text"><?php _x( 'Search for:', 'label' )?></span>
-            <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s" />
-          </label>
-          <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
-        </form>
+
       </nav>
+      <a href="#" class="header__search">
+        <i class="fas fa-search"></i>
+      </a>
 
 
       </div>

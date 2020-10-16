@@ -16,6 +16,7 @@ import header from './components/header';
 import menu from './components/menu';
 import hamburger from './components/hamburger';
 import slider from './components/slider';
+import search from './components/search';
 import slidervideo from './components/slidervideo';
 
 /** Populate Router instance with DOM routes */
@@ -34,6 +35,7 @@ jQuery(document).ready(() => {
   menu.init();
   header.init();
   hamburger.init();
+  search.init();
 
 
 

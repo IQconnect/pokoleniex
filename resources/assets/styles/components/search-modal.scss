@@ -1,0 +1,89 @@
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba($black, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: $transition;
+
+  &__close {
+    font-size: 40px;
+    color: $white;
+    position: absolute;
+    padding: gutter(2);
+    display: block;
+    top: gutter(2);
+    right: gutter(2);
+    cursor: pointer;
+
+    &:hover {
+      color: $special;
+    }
+  }
+
+  &--active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__input {
+    font-size: 26px;
+    color: $white;
+    background-color: transparent;
+    border: 2px solid $white;
+    padding: gutter(1.5) gutter(2);
+    width: gutter(35);
+    outline: 0;
+
+    @include media("<md") {
+      font-size: 16px;
+      padding: gutter(1.8) gutter(1.5);
+      width: gutter(20);
+    }
+
+    &::placeholder {
+      color: $white;
+    }
+
+    &:focus {
+      border-color: $special;
+    }
+  }
+
+  &__button {
+    margin-left: gutter(2);
+    padding: gutter(2.15) gutter(4);
+    background-color: $white;
+    color: $black;
+    font-weight: $semi-bold;
+    font-size: 18px;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    transition: $transition;
+
+    @include media("<md") {
+      font-size: 16px;
+      padding: gutter(2) gutter(2);
+      margin-left: 0;
+    }
+
+    &:hover {
+      background-color: $special;
+      color: $white;
+    }
+  }
+}

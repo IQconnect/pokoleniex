@@ -1,19 +1,15 @@
 <!doctype html>
 <html {!! get_language_attributes() !!}>
   @include('partials.head')
-  <body @php body_class() @endphp  style="overflow-x: hidden">
-    <div class="preloader" preloader ></div>
+  <body @php body_class() @endphp data-body>
+  <div class="preloader" preloader></div>
     @php do_action('get_header') @endphp
     @include('partials.postheader')
-
-    <div  class="wrap" role="document">
+    <div role="document">
       <div class="content">
         <main class="main">
-          @yield('news')
+          @yield('content')
         </main>
-        @php do_action('get_footer') @endphp
-    @include('partials.footer')
-    @php wp_footer() @endphp
         @if (App\display_sidebar())
           <aside class="sidebar">
             @include('partials.sidebar')
@@ -21,6 +17,8 @@
         @endif
       </div>
     </div>
-
+    @php do_action('get_footer') @endphp
+    @include('partials.footer')
+    @php wp_footer() @endphp
   </body>
 </html>
