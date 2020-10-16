@@ -1,0 +1,7 @@
+@mixin transition-delay {
+  @for $i from 0 through 6 {
+    &:nth-child(#{$i}) {
+      transition-delay: calc(700ms + #{$i * 200ms});
+    }
+  }
+}

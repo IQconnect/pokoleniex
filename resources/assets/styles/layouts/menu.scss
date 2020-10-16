@@ -1,0 +1,78 @@
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: gutter(1) gutter(1);
+  margin: 0;
+  padding: 0;
+
+  @include media(">=md") {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__title {
+    @extend .title;
+    @extend %main;
+
+    @include cssLock("padding-top", 360, 1920, (gutter_num(3), gutter_num(2)));
+    @include cssLock(
+      "padding-bottom",
+      360,
+      1920,
+      (gutter_num(3), gutter_num(6))
+    );
+
+    text-align: center;
+    margin: auto;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    position: relative;
+
+    &::after {
+      @extend %absolute;
+
+      content: "";
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: -10%;
+      width: gutter(5);
+      height: gutter(0.5);
+
+      @include media(">=md") {
+        bottom: -50%;
+      }
+    }
+  }
+
+  &__catname {
+    @extend .subtitle;
+    @extend %main;
+
+    padding: gutter(2) 0;
+    text-align: center;
+  }
+
+  &__category {
+    padding: gutter(2);
+
+    img {
+      transition: $transition;
+
+      &:hover {
+        outline: rgba($special, 0.6) solid gutter(0.3);
+        outline-offset: gutter(1);
+      }
+    }
+  }
+
+  &__image {
+    @extend %image;
+
+    object-fit: cover;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+  }
+}

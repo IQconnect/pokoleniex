@@ -1,0 +1,53 @@
+/* stylelint-disable */
+
+/** Import Bootstrap functions */
+@import "~bootstrap/scss/functions";
+
+// COLORS
+$dark: #1a1a1c;
+$black: #000;
+$white: #fff;
+$special: #d2ab31;
+$special-dark: #32315c;
+$grey: #a7a7a7;
+$grey-dark: #464646;
+
+// END COLORS
+
+$breakpoints: (
+  "xs": 576px,
+  "sm": 768px,
+  "md": 992px,
+  "lg": 1280px,
+  "xl": 1440px,
+);
+
+$transition: 0.4s;
+
+// font weight
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$bold-black: 900;
+
+$font-family: (
+  main: "Montserrat",
+  special: "Poiret One",
+);
+
+// width
+$container: 1816;
+
+$gutter: 8px;
+$gutter_number: 8;
+$gutter_num: 10;
+
+// animation
+$transition: 0.4ms;
+
+$z-index: (
+  header: 100,
+  preloader: 300,
+);

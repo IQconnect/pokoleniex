@@ -1,0 +1,40 @@
+.pagination {
+  $root: &;
+
+  display: flex;
+  list-style: none;
+  margin-top: gutter(4);
+
+  a {
+    color: $white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .active {
+    background-color: $special;
+
+    a {
+      color: $black;
+    }
+  }
+
+  li {
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      &:not(.active):not(.disabled) {
+        background-color: $white;
+      }
+
+      a {
+        color: $black;
+      }
+    }
+  }
+
+  .disabled {
+    display: none;
+  }
+}

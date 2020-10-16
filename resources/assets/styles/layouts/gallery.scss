@@ -1,0 +1,24 @@
+.gallery {
+  background-color: $special;
+  padding: gutter(5) 0;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: gutter(0.5);
+    margin-top: gutter(4);
+    padding: 0;
+
+    @include media("<=md") {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__imagewrapper {
+    height: gutter(20);
+  }
+
+  &__image {
+    @extend %image;
+  }
+}

@@ -1,0 +1,29 @@
+.button {
+  @extend .major-text;
+  @extend %main;
+
+  @include cssLock("padding", 360, 1920, (gutter_num(1.5), gutter_num(3)));
+  @include cssLock(
+    "padding-bottom",
+    360,
+    1920,
+    (gutter_num(0.4), gutter_num(0.8))
+  );
+  @include cssLock(
+    "padding-top",
+    360,
+    1920,
+    (gutter_num(0.4), gutter_num(0.8))
+  );
+
+  position: relative;
+  border: gutter(0.2) solid $special;
+  cursor: pointer;
+  transition: $transition;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $special;
+    color: $white;
+  }
+}

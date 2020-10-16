@@ -1,0 +1,166 @@
+.videotext {
+  $root: &;
+
+  background-color: $dark;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+    padding: 10px 0;
+  }
+
+  &__twocolls {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    @include media("<=md") {
+      flex-direction: column;
+    }
+  }
+
+  &__article {
+    padding: 0 gutter(3);
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+    @include media("<=md") {
+      width: 100%;
+    }
+
+    p {
+      @extend .text;
+
+      margin: gutter(0.5) 0;
+      color: $white;
+      line-height: gutter_num(0.16);
+      transform: translateY(15px);
+      position: relative;
+      opacity: 0;
+      transition: all 300ms ease;
+    }
+  }
+
+  &__videowrapper {
+    width: 60%;
+    overflow: hidden;
+    height: 700px;
+
+    @include media("<=md") {
+      width: 100%;
+      height: 300px;
+      margin: 0 0 gutter(3);
+    }
+
+    iframe {
+      position: relative;
+      transform: translateX(100%);
+      transition: all 600ms ease;
+    }
+  }
+
+  &__video {
+    width: 100%;
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+
+    @include media("<=md") {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+  &__title {
+    overflow: hidden;
+
+    h3 {
+      @extend .title;
+
+      color: $white;
+      font-weight: $bold;
+      overflow: hidden;
+      letter-spacing: 2px;
+      margin: gutter(4) 0;
+
+      span {
+        transform: translateY(100%);
+        position: relative;
+        transition: all 600ms ease;
+        display: inline-block;
+      }
+    }
+  }
+
+  &__cell {
+    width: 100%;
+    height: 900px;
+    margin: auto;
+    overflow: hidden;
+
+    &.is-selected {
+      #{$root}__title {
+        h3 {
+          overflow: hidden;
+
+          span {
+            transform: translateY(0%);
+            position: relative;
+            transition-delay: 400ms;
+            display: inline-block;
+          }
+        }
+      }
+
+      #{$root}__article {
+        p {
+          transform: translateY(0);
+          transition-delay: 700ms;
+          position: relative;
+          opacity: 1;
+
+          @include transition-delay;
+        }
+      }
+
+      #{$root}__videowrapper {
+        overflow: hidden;
+
+        iframe {
+          position: relative;
+          transform: translateX(0%);
+          transition-delay: 500ms;
+        }
+      }
+    }
+  }
+
+  .flickity-button {
+    top: unset;
+    bottom: 10%;
+    left: unset;
+    transform: none;
+    width: $gutter * 8;
+    height: $gutter * 8;
+    color: $white;
+    background: $dark;
+    box-shadow: 3px 3px 10px 0 rgba($color: $white, $alpha: 0.7);
+    border-radius: 100%;
+    outline: 0 !important;
+
+    &:hover {
+      background: darken($dark, 10%);
+    }
+
+    &.next {
+      right: gutter(15);
+    }
+
+    &.previous {
+      right: gutter(25);
+    }
+  }
+}

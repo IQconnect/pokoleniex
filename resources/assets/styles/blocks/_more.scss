@@ -1,0 +1,29 @@
+.more {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+
+  @include cssLock("margin-top", 360, 1920, (gutter_num(0), gutter_num(1)));
+  @include cssLock("margin-bottom", 360, 1920, (gutter_num(0), gutter_num(4)));
+
+  &--black {
+    color: $black;
+  }
+
+  &--white {
+    color: $white;
+  }
+
+  &__text {
+    @extend .major-text;
+    @extend %special;
+
+    font-weight: 600;
+    margin: gutter(3) 0;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

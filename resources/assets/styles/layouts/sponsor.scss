@@ -1,0 +1,110 @@
+.sponsor {
+  $root: &;
+
+  .flickity-viewport {
+    height: 100vw !important;
+
+    @include media(">sm") {
+      height: calc(100vw / 3) !important;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    margin: 40px 0;
+  }
+
+  &__contain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__carousel {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  &__cell {
+    width: 45%;
+    margin: 5px;
+    background-color: $black;
+    transition: transform 0.4s ease;
+    display: flex;
+    align-items: center;
+
+    @include cssLock("height", 360, 1920, (gutter_num(30), gutter_num(70)));
+
+    @include media("<=sm") {
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  &__cellcontent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 gutter(3.5);
+    position: relative;
+  }
+
+  &__imgwrapper {
+    background-color: $white;
+    box-shadow: 0 6px 19px 0 #7f818e;
+    transition: 0.3s ease;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-top: gutter(5);
+
+    @include cssLock("height", 1366, 1920, (gutter_num(10), gutter_num(20)));
+  }
+
+  &__button {
+    @extend %special;
+
+    padding: gutter(1) gutter(2);
+    background: $white;
+    border-radius: 15px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    @extend %special;
+    @extend .major-text;
+
+    margin: 20px 0 0 0;
+    font-weight: 700;
+    color: $white;
+  }
+
+  &__text {
+    @extend %special;
+    @extend .small-title;
+
+    margin-left: gutter(2);
+    font-weight: 400;
+    color: $white;
+  }
+
+  &__img {
+    @extend %image;
+
+    object-fit: contain;
+
+    @include media("<=sm") {
+      max-height: gutter(20);
+    }
+  }
+}

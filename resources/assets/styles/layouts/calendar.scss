@@ -1,0 +1,168 @@
+.calendar {
+  $root: &;
+
+  &__wrapper {
+    height: 95vh;
+  }
+
+  &__contain {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__carousel {
+    width: 92%;
+    border-radius: 15px;
+  }
+
+  &__cell {
+    width: 19.2%;
+    height: 450px;
+    margin-right: 10px;
+    border: 7px solid rgba(119, 118, 118, 0.3);
+    border-radius: 15px;
+    transition: background-color 0.2s ease-in-out;
+
+    @include media("<=lg") {
+      width: 50%;
+      height: 500px;
+    }
+
+    @include media("<=sm") {
+      width: 100%;
+      height: 500px;
+    }
+
+    &:hover {
+      background-color: $white;
+      border: 7px solid $white;
+
+      #{$root}__text {
+        color: $black;
+      }
+
+      #{$root}__datename {
+        color: $black;
+
+        &::after {
+          background-color: $special-dark;
+        }
+      }
+
+      #{$root}__datenumber {
+        color: $black;
+      }
+    }
+  }
+
+  &__cellcontent {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    position: relative;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &__background {
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    width: 50%;
+    opacity: 0.3;
+
+    @include cssLock("height", 360, 1920, (gutter_num(35), gutter_num(76)));
+
+    @include media("<=xl") {
+      width: 45%;
+    }
+
+    @include media("<=sm") {
+      display: none;
+    }
+  }
+
+  &__img {
+    @extend %image;
+  }
+
+  &__date {
+    margin: 20px;
+  }
+
+  &__datenumber {
+    @extend .major-text;
+    @extend %special;
+
+    font-weight: 600;
+    color: $white;
+  }
+
+  &__datename {
+    @extend .text;
+    @extend %special;
+
+    font-weight: 600;
+    color: $white;
+
+    &::after {
+      content: "";
+      display: inline-flex;
+      align-items: center;
+      background-color: $special;
+      width: 15px;
+      height: 30px;
+      border-radius: 15px;
+    }
+  }
+
+  &__text {
+    @extend .text;
+    @extend %special;
+
+    font-weight: 600;
+    color: $white;
+    margin: gutter(2);
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.flickity-prev-next-button {
+  width: 60px;
+  height: 60px;
+}
+
+.flickity-prev-next-button.previous {
+  left: -65px;
+}
+
+.flickity-prev-next-button.next {
+  right: -65px;
+}
+
+.flickity-button {
+  background: none;
+  border: 5px solid rgba(119, 118, 118, 0.3);
+  color: rgba(119, 118, 118, 0.3);
+
+  &:hover {
+    background: $white;
+    color: $special;
+    border: 0;
+  }
+}

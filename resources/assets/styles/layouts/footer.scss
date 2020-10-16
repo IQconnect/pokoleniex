@@ -1,0 +1,134 @@
+.footer {
+  $root: &;
+
+  background-color: $dark;
+
+  &__wrapper {
+    padding: gutter(10) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__follow {
+    @extend %special;
+    @extend .follow;
+
+    margin: gutter(3) 0 0 0;
+    letter-spacing: gutter(0.5);
+    font-weight: 600;
+    color: $white;
+    text-align: center;
+  }
+
+  &__social {
+    margin: gutter(4) 0;
+  }
+
+  &__icon {
+    font-size: gutter(4) !important;
+  }
+
+  &__text {
+    @extend %special;
+    @extend .small-title;
+
+    letter-spacing: gutter(0.5);
+    font-weight: 300;
+    color: $white;
+  }
+
+  &__right {
+    @extend %special;
+    @extend .minor-text;
+
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: gutter(0.5);
+    color: $white;
+    margin: gutter(2) 0;
+  }
+
+  &__logo {
+    margin: gutter(3) 0 0 0;
+    width: gutter(10);
+  }
+
+  &__brand {
+    margin: gutter(3) 0;
+    width: gutter(20);
+  }
+
+  &__image {
+    @extend %image;
+  }
+
+  &__nav {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    transition: 0.3s;
+    overflow: hidden;
+
+    .menu-item {
+      @extend .menu-link;
+
+      padding: gutter(1) 0;
+      position: relative;
+      color: $white;
+
+      @include media(">=lg") {
+        padding: 0 gutter(1.1);
+        color: $white;
+      }
+
+      &:hover {
+        color: $special;
+        text-decoration: underline;
+
+        @include media(">=lg") {
+          .sub-menu {
+            display: block;
+          }
+        }
+      }
+
+      a {
+        white-space: nowrap;
+        opacity: 1;
+        color: inherit;
+        font-weight: $medium;
+      }
+
+      &.current-menu-item,
+      &.current-menu-ancestor {
+        position: relative;
+        color: $special;
+
+        @include media(">=lg") {
+          color: $special;
+        }
+
+        .current_page_item {
+          background: $white;
+        }
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: gutter(5) 0;
+    margin: 0;
+
+    @include media(">=lg") {
+      padding: gutter(5) 0;
+      flex-direction: row;
+    }
+  }
+}

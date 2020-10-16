@@ -1,0 +1,219 @@
+.popup-flat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba($dark, 0.8);
+  z-index: 250;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: $transition;
+
+  @include media("<=md") {
+    width: auto;
+    height: 100vh;
+    overflow: auto;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: auto gutter(50);
+    height: 80vh;
+    width: 100%;
+    background: $white;
+    overflow: auto;
+    position: relative;
+
+    @include media("<=md") {
+      display: flex;
+      flex-direction: column-reverse;
+      height: 100%;
+      width: 100%;
+      padding-top: gutter(6.4);
+    }
+  }
+
+  &__close {
+    top: gutter(3.2);
+    position: absolute;
+    right: gutter(3.2);
+
+    @include media(">=md") {
+      position: fixed;
+      right: gutter(6.4);
+    }
+  }
+
+  &__gallery {
+    height: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 35vh auto;
+    gap: gutter(1.6);
+    padding: gutter(1.6);
+
+    &--single {
+      grid-template-rows: 1fr;
+    }
+
+    @include media("<=md") {
+      display: none;
+      height: auto;
+    }
+  }
+
+  &__image {
+    padding: gutter(1.6);
+    position: relative;
+    border: 1px solid $dark;
+
+    @include media(">=md") {
+      display: none;
+    }
+
+    &:first-child {
+      grid-column: span 3;
+      padding: 0;
+      border: 0;
+
+      @include media(">=md") {
+        display: block;
+      }
+    }
+
+    img {
+      @extend .image;
+
+      object-fit: contain;
+    }
+  }
+
+  &__cart {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 100px;
+    align-items: center;
+    height: gutter(20);
+    padding: gutter(1.6);
+
+    @include media(">=md") {
+      flex-direction: column;
+      display: none;
+    }
+  }
+
+  &__cart-img {
+    height: 100%;
+    width: calc(100% - 300px);
+    max-width: 100%;
+    object-fit: contain;
+    object-position: 0 50px;
+
+    @include media(">=lg") {
+      object-position: 0 10px;
+      width: calc(100% - 5vw);
+    }
+
+    @include media(">=lg") {
+      object-position: 0 10px;
+      width: 100%;
+    }
+
+    @include media(">=md") {
+      width: 100%;
+      margin-bottom: gutter(3.2);
+    }
+  }
+
+  &__karta {
+    @extend .button;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 1px solid $dark;
+    color: $dark;
+    padding: gutter(1.6) gutter(3.2);
+    white-space: nowrap;
+    width: gutter(20);
+    margin-left: gutter(1.6);
+
+    @include media(">=md") {
+      width: 100%;
+      margin-bottom: gutter(3.2);
+      margin-left: 0;
+    }
+
+    &:hover {
+      background: $special;
+    }
+
+    img {
+      height: gutter(3.2);
+      width: auto;
+      padding-left: gutter(1.6);
+    }
+  }
+
+  &.-is-active {
+    opacity: 1;
+    pointer-events: initial;
+    z-index: 500;
+  }
+
+  .container {
+    width: 100%;
+
+    @include media(">=lg") {
+      max-width: 90vw !important;
+    }
+
+    @include media(">=md") {
+      padding: 0;
+      max-width: 100vw !important;
+      margin: 0 !important;
+      height: 100vh;
+    }
+  }
+
+  form {
+    @include media(">=md") {
+      overflow: initial;
+      height: auto;
+    }
+  }
+
+  &__title {
+    @extend .text;
+
+    text-transform: uppercase;
+    color: $special;
+    margin: gutter(3.2) gutter(1.6) gutter(0.8);
+    font-weight: 600;
+    letter-spacing: 2.4px;
+
+    @include media(">=md") {
+      margin-top: gutter(6.2);
+    }
+  }
+
+  &__content {
+    @extend .text;
+
+    margin: 0 gutter(1.6) gutter(1.6);
+    font-weight: 600;
+    letter-spacing: 2.4px;
+    line-height: gutter(3.2);
+  }
+}
+
+.dark-active {
+  opacity: 1 !important;
+  fill: rgba(0, 0, 0, 0.39097744360902253) !important;
+  stroke: rgba(255, 255, 255, 0.75) !important;
+}

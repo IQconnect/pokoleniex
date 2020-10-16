@@ -1,0 +1,81 @@
+.maingallery {
+  width: 100%;
+  padding: gutter(5) 0;
+
+  .flickity-viewport {
+    height: 100vw !important;
+
+    @include media(">=sm") {
+      height: calc(100vw / 3) !important;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: gutter(4);
+    padding: gutter(5) 0;
+
+    @include media("<=lg") {
+      grid-gap: gutter(18);
+      grid-template-columns: 1fr;
+    }
+
+    &--no-wrap {
+      @include media(">=sm") {
+        grid-template-columns: 1fr 2.28fr;
+      }
+    }
+  }
+
+  &__cells {
+    position: relative;
+
+    &--padding {
+      padding: gutter(10) 0;
+    }
+
+    &--2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: gutter(4);
+
+      @include media(">=xl") {
+        grid-template-columns: 1.56fr 1fr;
+      }
+    }
+
+    &--end {
+      display: flex;
+      align-items: center;
+
+      @include media(">=sm") {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &__cell {
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+    margin: 0;
+
+    @include media(">=sm") {
+      width: calc(100vw / 3);
+      height: calc(100vw / 3);
+      margin: 0 ($gutter * 3);
+    }
+
+    img {
+      @extend .image;
+      @extend %absolute;
+
+      max-width: 100%;
+    }
+  }
+
+  + & {
+    padding-top: 0;
+  }
+}

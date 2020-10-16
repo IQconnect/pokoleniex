@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: map-get($font-family, "main");
+  overflow-x: initial;
+  margin: 0 !important;
+  padding: 0;
+  background-color: $white;
+}
+
+#wpadminbar {
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.gmp_map_opts,
+.gmpMapDetailsContainer,
+.gmp_MapPreview {
+  height: 100% !important;
+  min-height: 300px;
+}
+
+xmp {
+  padding: 15px;
+  background: #001d2b;
+  border-radius: 16px;
+  color: white;
+}
+
+strong {
+  font-weight: $bold !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  outline: rgba($special, 0) solid gutter(0.1);
+  transition: $transition;
+
+  &:focus {
+    outline: rgba($white, 0.6) solid gutter(0.1);
+    outline-offset: gutter(0.1);
+  }
+}
+
+.fancybox-slide {
+  background-color: rgba($dark, 0.6);
+}
+
+.wrap {
+  overflow: hidden;
+}
+
+button {
+  outline: rgba($special, 0) solid gutter(0.1);
+  transition: $transition;
+
+  &:focus {
+    outline: rgba($special, 0.6) solid gutter(0.1);
+  }
+}

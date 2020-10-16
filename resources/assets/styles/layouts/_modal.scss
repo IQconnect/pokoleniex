@@ -1,0 +1,161 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding: 60px 40px;
+  color: #fff;
+  background-color: rgba($color: #000, $alpha: 0.4);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+
+  @include media("<lg") {
+    padding: 20px 10px;
+    flex-direction: row;
+  }
+
+  &__close {
+    color: #fff;
+    font-size: 35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 0;
+    margin: 20px;
+
+    &:hover {
+      color: $special;
+    }
+  }
+
+  &__base {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    padding: gutter(5);
+  }
+
+  &__avatar {
+    @include cssLock("height", 360, 1920, (gutter_num(15), gutter_num(45)));
+    @include cssLock("width", 360, 1920, (gutter_num(10), gutter_num(40)));
+  }
+
+  &__img {
+    @extend %image;
+
+    object-fit: contain;
+
+    @include media("<=sm") {
+      max-height: gutter(20);
+    }
+  }
+
+  &__content {
+    text-align: left;
+  }
+
+  &__info {
+    @extend .text;
+    @extend %special;
+
+    font-weight: 400;
+  }
+
+  &__headline {
+    @extend .subtitle;
+    @extend %special;
+
+    font-weight: 600;
+    margin-bottom: gutter(2);
+    line-height: 1;
+  }
+
+  &__name {
+    @extend .text;
+    @extend %special;
+
+    font-weight: 600;
+  }
+
+  &__title {
+    @extend .text;
+    @extend %special;
+
+    font-weight: 600;
+    text-align: left;
+    display: block;
+  }
+
+  &__pt {
+    color: $white;
+    font-weight: 800;
+  }
+
+  &__tableinfo {
+    @extend %special;
+
+    text-align: left;
+    border-collapse: collapse;
+    width: 400px;
+
+    td {
+      padding: gutter(2);
+    }
+
+    tr {
+      border-bottom: 1px solid $white;
+    }
+  }
+
+  &__statistic {
+    margin: 0 gutter(5);
+  }
+
+  &__caption {
+    @extend .subtitle;
+    @extend %special;
+
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: gutter(1);
+  }
+
+  &__table {
+    @extend .follow;
+    @extend %special;
+
+    text-align: left;
+    margin: 0 gutter(5);
+
+    td {
+      padding: gutter(0.8) gutter(1);
+    }
+
+    tr {
+      border-bottom: 1px solid red;
+    }
+
+    &--stats {
+      text-align: left;
+      width: 100%;
+
+      td {
+        width: 100%;
+        padding: gutter(0.4) gutter(1);
+      }
+
+      tr {
+        border: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+.showarticle {
+  $root: &;
+
+  margin-bottom: 0;
+
+  p {
+    margin: 0;
+  }
+
+  &__titlesection {
+    @extend .title;
+    @extend %special;
+
+    width: 100%;
+    background-color: $dark;
+    display: flex;
+    justify-content: center;
+    color: $white;
+    text-transform: uppercase;
+    padding: gutter(3);
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__wraparticles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: gutter(1);
+    background-color: $dark;
+
+    @include media("<=md") {
+      grid-template-columns: 1fr 1fr;
+      gap: gutter(0.5);
+    }
+  }
+
+  &__article {
+    width: 100%;
+    height: gutter(70);
+    display: flex;
+    flex-direction: column;
+    margin-right: gutter(1);
+    overflow: hidden;
+
+    @include media("<=md") {
+      height: 100%;
+      margin: 0;
+    }
+
+    &:hover {
+      //background-color: $white;
+      //border: 7px solid $white;
+
+      #{$root}__smalltitle {
+        text-decoration: underline;
+      }
+
+      #{$root}__image {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__bar {
+    bottom: 0;
+    height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include media("<=md") {
+      height: 150px;
+    }
+  }
+
+  &__smalltitle {
+    @extend .text;
+
+    text-align: center;
+    font-weight: $bold;
+    color: $white;
+    padding: 0 gutter(1);
+  }
+
+  &__categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include media("<=md") {
+      margin: gutter(0.2) gutter(0.2);
+    }
+  }
+
+  &__tcategory {
+    @extend %categorytab;
+
+    color: $white;
+  }
+
+  &__tdate {
+    @extend .minor-text;
+
+    text-align: center;
+    color: $white;
+    text-transform: uppercase;
+    margin: gutter(2) 0;
+
+    @include media("<=md") {
+      margin: gutter(0.2) 0;
+    }
+  }
+
+  &__imagewrapper {
+    height: 300px;
+    overflow: hidden;
+
+    @include media("<=md") {
+      height: 150px;
+    }
+  }
+
+  &__image {
+    @extend %image;
+
+    transition: transform 0.5s ease;
+  }
+}

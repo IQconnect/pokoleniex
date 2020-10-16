@@ -1,0 +1,153 @@
+.carousel {
+  $root: &;
+
+  p {
+    margin: 0;
+  }
+
+  &__wraparticles {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  &__slider {
+    width: 99%;
+  }
+
+  .flickity-viewport {
+    height: 430px !important;
+  }
+
+  &__cell {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    margin-right: gutter(1);
+    box-shadow: 5px 7px 10px 0 rgba(0, 0, 0, 0.3);
+
+    @include media("<=md") {
+      width: 100%;
+    }
+
+    &:hover {
+      //background-color: $white;
+      //border: 7px solid $white;
+      #{$root}__text {
+        color: $black;
+      }
+
+      #{$root}__datename {
+        color: $black;
+
+        &::after {
+          background-color: $special-dark;
+        }
+      }
+
+      #{$root}__datenumber {
+        color: $black;
+      }
+    }
+  }
+
+  &__smallarticle {
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      #{$root}__smalltitle {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__bar {
+    background-color: $white;
+    bottom: 0;
+    height: 170px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__smalltitle {
+    @extend .text;
+
+    text-align: center;
+    font-weight: $bold;
+    color: $dark;
+    padding: 0 gutter(1);
+  }
+
+  &__categories {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__tcategory {
+    @extend %categorytab;
+
+    color: $dark;
+  }
+
+  &__tdate {
+    @extend .minor-text;
+
+    text-align: center;
+    color: $dark;
+    text-transform: uppercase;
+    margin: gutter(2) 0;
+  }
+
+  &__imagewrapper {
+    height: 250px;
+  }
+
+  &__image {
+    @extend %image;
+  }
+
+  .flickity-prev-next-button {
+    width: gutter(6);
+    height: gutter(6);
+  }
+
+  .flickity-prev-next-button.previous {
+    @include media("<=md") {
+      left: 0;
+    }
+  }
+
+  .flickity-prev-next-button.next {
+    right: 0;
+  }
+
+  .flickity-button-icon {
+    transition: 0.4s ease;
+  }
+
+  .flickity-button {
+    background: none;
+    border: 1px solid rgba(119, 118, 118, 0.3);
+    box-shadow: 3px 3px 10px 0 rgba($color: $dark, $alpha: 0.7);
+    color: $dark;
+    transition: 0.4s ease;
+
+    @include media("<=xl") {
+      background-color: $white;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      .flickity-button-icon {
+        transform: scale(0.8);
+      }
+    }
+  }
+}

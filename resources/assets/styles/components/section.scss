@@ -1,0 +1,24 @@
+.section {
+  @include cssLock("margin-top", 360, 1920, (gutter_num(3), gutter_num(8)));
+  @include cssLock("margin-bottom", 360, 1920, (gutter_num(3), gutter_num(8)));
+
+  &--nomarginup {
+    margin-top: 0;
+  }
+
+  &--nomargindown {
+    margin-bottom: 0;
+  }
+
+  &--post {
+    height: unset !important;
+  }
+
+  &--white {
+    background: $white;
+  }
+
+  &--black {
+    background: $black;
+  }
+}

@@ -1,0 +1,51 @@
+.posts {
+  padding-top: gutter(10);
+  background-color: #f5f6f6;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.2;
+    background-image: url("../images/A3X3_LOGO_BG_GHOST.png");
+    background-size: 40%;
+    background-position: 50% 25%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  &__info {
+    display: block;
+  }
+
+  &__date {
+    @extend %special;
+    @extend .text;
+
+    display: inline-block;
+    font-weight: 400;
+    background-color: $special;
+    color: $white;
+    margin-bottom: gutter(5);
+
+    @include cssLock("padding", 360, 1920, (gutter_num(0.5), gutter_num(1)));
+  }
+
+  &__title {
+    @extend %special;
+    @extend .title;
+
+    font-weight: 400;
+    color: $black;
+
+    @include cssLock(
+      "margin-bottom",
+      360,
+      1920,
+      (gutter_num(2), gutter_num(2))
+    );
+  }
+}

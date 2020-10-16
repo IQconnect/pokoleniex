@@ -1,0 +1,91 @@
+.three_article {
+  $root: &;
+
+  p {
+    margin: 0;
+  }
+
+  &__wraparticles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: gutter(1) 0;
+    gap: gutter(1);
+
+    @include media("<=md") {
+      grid-template-columns: 1fr;
+      gap: gutter(0.5);
+    }
+  }
+
+  &__article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &:hover {
+      //background-color: $white;
+      //border: 7px solid $white;
+
+      #{$root}__smalltitle {
+        text-decoration: underline;
+      }
+
+      #{$root}__image {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__bar {
+    background-color: $white;
+    bottom: 0;
+    height: 170px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__smalltitle {
+    @extend .text;
+
+    text-align: center;
+    font-weight: $bold;
+    color: $dark;
+    padding: 0 gutter(1);
+  }
+
+  &__categories {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__tcategory {
+    @extend %categorytab;
+  }
+
+  &__tdate {
+    @extend .minor-text;
+
+    text-align: center;
+    color: $dark;
+    text-transform: uppercase;
+    margin: gutter(2) 0;
+  }
+
+  &__imagewrapper {
+    height: 330px;
+    overflow: hidden;
+
+    @include media("<=md") {
+      height: 200px;
+    }
+  }
+
+  &__image {
+    @extend %image;
+
+    transition: transform 0.5s ease;
+  }
+}

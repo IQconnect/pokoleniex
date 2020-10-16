@@ -1,0 +1,178 @@
+.bigcat_article {
+  $root: &;
+
+  p {
+    margin: 0;
+  }
+
+  &__titlesection {
+    @extend .title;
+    @extend %special;
+
+    width: 100%;
+    background-color: $dark;
+    display: flex;
+    justify-content: center;
+    color: $white;
+    text-transform: uppercase;
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__bigarticle {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    grid-row: 1/3;
+    box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.3);
+    padding-bottom: gutter(1);
+
+    @include media("<=md") {
+      flex-direction: row;
+      grid-row: unset;
+    }
+
+    &--left {
+      grid-column: 1/3;
+
+      @include media("<=md") {
+        grid-column: 1/3;
+        padding-bottom: 0;
+        flex-direction: row-reverse;
+      }
+    }
+
+    &--right {
+      grid-column: 3/5;
+
+      @include media("<=md") {
+        grid-column: 1/3;
+        padding-bottom: 0;
+      }
+    }
+
+    &:hover {
+      #{$root}__bigtitle {
+        text-decoration: underline;
+      }
+
+      #{$root}__image {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__bigtitle {
+    @extend .major-text;
+
+    padding: gutter(3);
+    font-weight: $bold !important;
+    color: $dark;
+    text-align: center;
+
+    @include media("<=md") {
+      padding: gutter(1);
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: gutter(4);
+    column-gap: gutter(1);
+
+    @include media("<=md") {
+      grid-template-columns: 1fr 1fr;
+      row-gap: gutter(2);
+    }
+  }
+
+  &__article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &:hover {
+      //background-color: $white;
+      //border: 7px solid $white;
+
+      #{$root}__smalltitle {
+        text-decoration: underline;
+      }
+
+      #{$root}__image {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__bar {
+    background-color: $white;
+    bottom: 0;
+    height: gutter(20);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__smalltitle {
+    @extend .text;
+
+    text-align: center;
+    font-weight: $bold;
+    color: $dark;
+    padding: 0 gutter(1);
+  }
+
+  &__categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__tcategory {
+    @extend %categorytab;
+  }
+
+  &__tdate {
+    @extend .minor-text;
+
+    text-align: center;
+    color: $dark;
+    text-transform: uppercase;
+    margin: gutter(2) 0;
+  }
+
+  &__imagewrapper {
+    height: 230px;
+    overflow: hidden;
+
+    @include media("<=md") {
+      height: 150px;
+    }
+  }
+
+  &__bigimagewrapper {
+    height: 530px;
+    overflow: hidden;
+
+    @include media("<=md") {
+      height: 200px;
+    }
+  }
+
+  &__image {
+    @extend %image;
+
+    transition: transform 0.5s ease;
+  }
+}

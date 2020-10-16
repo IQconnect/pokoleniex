@@ -1,0 +1,71 @@
+/** Vendors */
+@import "../../../node_modules/tooltipster/dist/css/tooltipster.bundle.min.css";
+@import "../../../node_modules/include-media/dist/include-media.scss";
+@import "~@animated-burgers/burger-rotate/dist/styles.css";
+@import "vendors/scss-lock/css-lock";
+@import "vendors/fonts";
+@import "~aos/src/sass/aos.scss";
+
+//*FONT *//
+
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/** Common */
+
+@import "common/variables";
+@import "common/functions";
+@import "common/_mixins";
+@import "common/extends";
+
+/** Import everything from autoload */
+
+// @import "./autoload/**/*";
+
+/**
+ * Import npm dependencies
+ *
+ * Prefix your imports with `~` to grab from node_modules/
+ * @see https://github.com/webpack-contrib/sass-loader#imports
+ */
+
+// @import "~some-node-module";
+
+/** Import theme styles */
+
+@import "common/global";
+
+/** Components */
+@import "components/container";
+@import "components/section";
+@import "components/pagination";
+@import "components/text";
+@import "components/button";
+@import "components/text-info";
+
+/** Blocks */
+// @import "blocks/hamburger";
+@import "blocks/lg-pick";
+@import "blocks/nav";
+@import "blocks/contact-header";
+@import "blocks/_headline";
+@import "blocks/_more";
+
+/** Layouts */
+@import "layouts/header";
+@import "layouts/hero";
+@import "layouts/carousel";
+@import "layouts/videotext";
+@import "layouts/three_article";
+@import "layouts/six_article";
+@import "layouts/cat_article";
+@import "layouts/bigcat_article";
+@import "layouts/showarticle";
+@import "layouts/people_article";
+@import "layouts/instaline";
+@import "layouts/menu";
+@import "layouts/page-content";
+@import "layouts/posts";
+@import "layouts/footer";
+
+/** Pages */
